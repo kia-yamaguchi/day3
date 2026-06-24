@@ -17,7 +17,7 @@
       "service": "day3"
     }
   ]
-"site": {
-  "bucket": ".open-next"
-}
+  "site": {
+    "bucket": ".open-next"
+  }
 }
