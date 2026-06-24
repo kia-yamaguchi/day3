@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build && npx open-next build",
+    "start": "npx open-next build && npx wrangler deploy"
   },
   "dependencies": {
     "next": "16.2.9",
