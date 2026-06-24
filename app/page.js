@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { IcebreakerCard } from "@/components/IcebreakerSections";
+import { CategoryBrowseSection } from "@/components/CategoryBrowseSection";
+import { allIcebreakers } from "@/data/icebreakers";
 
 export default function Home() {
   return (
@@ -123,24 +126,36 @@ export default function Home() {
       </section>
 
       <section id="ideas" className="scroll-mt-24 bg-ivory">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-ink sm:text-3xl">
-            アイスブレイク一覧
-          </h2>
-          <p className="mt-3 max-w-2xl text-ink-muted">
-            近日公開予定です。ヒーローセクションから、温かくポップなトーンでサイトを始めました。
-          </p>
+        <div className="mx-auto max-w-6xl px-4 pb-20 pt-6 sm:px-6 sm:pb-24 lg:px-8">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="text-2xl font-semibold text-ink sm:text-3xl">
+              アイスブレイク一覧
+            </h2>
+            <p className="mt-3 text-ink-muted">
+              全{allIcebreakers.length}件のアイスブレイクを掲載しています。内容・形式・時間・人数のタグから用途に合うネタを選べます。
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {allIcebreakers.map((item) => (
+              <IcebreakerCard key={item.id} item={item} anchorId={item.id} />
+            ))}
+          </div>
         </div>
       </section>
 
       <section id="categories" className="scroll-mt-24 bg-ivory-tint/50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-ink sm:text-3xl">
-            カテゴリから探す
-          </h2>
-          <p className="mt-3 max-w-2xl text-ink-muted">
-            シーン・形式・時間・人数から絞り込める機能を準備中です。
-          </p>
+        <div className="mx-auto max-w-6xl px-4 pb-20 pt-2 sm:px-6 sm:pb-24 lg:px-8">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="text-2xl font-semibold text-ink sm:text-3xl">
+              カテゴリから探す
+            </h2>
+            <p className="mt-3 text-ink-muted">
+              内容・形式・時間・人数のタグが一致するアイスブレイクだけを絞り込んで表示します。
+            </p>
+          </div>
+          <div className="rounded-3xl border border-accent-lilac/25 bg-white/85 p-6 shadow-card backdrop-blur-sm sm:p-10">
+            <CategoryBrowseSection />
+          </div>
         </div>
       </section>
 
